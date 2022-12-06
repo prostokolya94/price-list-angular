@@ -8,4 +8,6 @@ import { IProduct } from 'src/app/models/product';
 export class ProductComponent {
   //@ts-ignore
   @Input() product: IProduct;
+
+  details = false;
 }

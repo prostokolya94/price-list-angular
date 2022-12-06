@@ -3,6 +3,11 @@
 >
   <h1 class="font-bold text-center">{{ title | titlecase }}</h1>
 
-  <app-product [product]="products[0]" class="flex justify-center">
-  </app-product>
+  <!-- <app-product [product]="products[0]" class="flex justify-center">
+  </app-product> -->
+  <app-product
+    *ngFor="let product of products; let i = index"
+    [product]="product"
+    class="w-full flex"
+  ></app-product>
 </div>

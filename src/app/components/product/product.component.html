@@ -1,9 +1,18 @@
-<div class="flex w-2/3 justify-center gap-5">
-  <img class="w-1/6" src="{{ product.image }}" />
-  <div class="flex flex-col justify-start items-start">
-    <h2 class="text-lg font-bold">{{ product.title }}</h2>
-    <h3 class="text-lg font-serif">{{ product.description }}</h3>
-    <p>Category:{{ product.category }}</p>
-    <p>{{ product.price }}</p>
+<div class="py-4 px-6 border rounded flex items-center flex-col mb-2 w-full">
+  <img class="w-1/6 mb-2" src="{{ product.image }}" />
+  <div class="w-1/4 flex flex-col">
+    <h2 class="mb-2 text-md text-center">{{ product.title }}</h2>
+    <button
+      class="w-full"
+      [ngClass]="{ 'bg-yellow-400': !details, 'bg-blue-400': details }"
+      (click)="details = !details"
+    >
+      {{ details ? "Hide" : "Show" }} Details
+    </button>
+    <div *ngIf="details" class="flex flex-col text-center">
+      <h3 class="w-full">{{ product.description }}</h3>
+      <p>Category:{{ product.category }}</p>
+      <p>{{ product.price | currency }}</p>
+    </div>
   </div>
 </div>
